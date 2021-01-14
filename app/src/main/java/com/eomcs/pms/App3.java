@@ -53,7 +53,6 @@ public class App3 {
     }
 
 
-
     System.out.printf("담당자 : %s\n", manager);
 
 
