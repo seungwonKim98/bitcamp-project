@@ -50,19 +50,20 @@ public class App {
 
   // 인트형 스캐너 메소드
   static int promptInt(String title) {
-    return Integer.valueOf(keyboardScan.nextLine());
+    String str = promptString(title);
+    return Integer.valueOf(str);
   }
 
   // 데이트 스캐너 메소드
-  static Date promptDate(String tile) {
-    return Date.valueOf(keyboardScan.nextLine());
+  static Date promptDate(String title) {
+    String today = promptString(title);
+    return Date.valueOf(today);
   }
 
 
   static void addMember() {
     System.out.println("[회원 등록]");
 
-    System.out.print("번호? ");
     no[size] = promptInt("번호? ");
     name[size] = promptString("이름? ");
     email[size] = promptString("이메일? ");
@@ -89,13 +90,10 @@ public class App {
   static void addProject() {
     System.out.println("[프로젝트 등록]");
 
-    System.out.print("번호? ");
     pno[psize] = promptInt("번호? ");
     ptitle[psize] = promptString("프로젝트명? ");
     pcontent[psize] = promptString("내용? ");
-    System.out.print("시작일? ");
     pstartDate[psize] = promptDate("시작일? ");
-    System.out.print("종료일? ");
     pendDate[psize] = promptDate("종료일? ");
     powner[psize] = promptString("만든이? ");
     pmembers[psize] = promptString("팀원? ");
@@ -116,16 +114,9 @@ public class App {
   static void addTask() {
     System.out.println("[작업 등록]");
 
-    System.out.print("번호? ");
     tno[tsize] = promptInt("번호? ");
     tcontent[tsize] = promptString("내용? ");
-    System.out.print("마감일? ");
     tdeadline[tsize] = promptDate("마감일? ");
-    System.out.println("상태?");
-    System.out.println("0: 신규");
-    System.out.println("1: 진행중");
-    System.out.println("2: 완료");
-    System.out.print("> ");
     tstatus[tsize] = promptInt("상태?\n0: 신규\n1: 진행중\n2: 완료\n> ");
     towner[tsize] = promptString("담당자? ");
 
