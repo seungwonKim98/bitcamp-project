@@ -30,7 +30,7 @@ public class TaskHandler {
         t.owner = name;
         break;
       } else {
-        System.out.println("등록된 회원이 아닙니다.");
+        System.out.println("등록된 회원이 아닙니다 .");
       }
     }
 
