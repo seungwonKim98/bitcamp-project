@@ -1,4 +1,4 @@
-package com.eomcs.handler;
+package com.eomcs.pms.handler;
 
 import java.sql.Date;
 import com.eomcs.util.Prompt;
@@ -26,15 +26,15 @@ public class TaskHandler {
     t.deadline = Prompt.inputDate("마감일? ");
     t.status = Prompt.inputInt("상태?\n0: 신규\n1: 진행중\n2: 완료\n> ");
 
-    while(true) {
-      String name = Prompt.inputString("담당자? (취소 : 빈 문자열) "); 
-      if(name.length() == 0) {
+    while (true) {
+      String name = Prompt.inputString("담당자?(취소: 빈 문자열) ");
+      if (name.length() == 0) {
         System.out.println("작업 등록을 취소합니다.");
         return;
-      }else if(MemberHandler.exist(name)){
+      } else if (MemberHandler.exist(name)) {
         t.owner = name;
         break;
-      }else {
+      } else {
         System.out.println("등록된 회원이 아닙니다.");
       }
     }
@@ -46,7 +46,6 @@ public class TaskHandler {
     System.out.println("[작업 목록]");
 
     for (int i = 0; i < size; i++) {
-
       Task t = tasks[i];
 
       String stateLabel = null;
