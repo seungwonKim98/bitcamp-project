@@ -1,7 +1,6 @@
 package com.eomcs.pms;
 
 import com.eomcs.pms.handler.BoardHandler;
-import com.eomcs.pms.handler.BoardList;
 import com.eomcs.pms.handler.MemberHandler;
 import com.eomcs.pms.handler.ProjectHandler;
 import com.eomcs.pms.handler.TaskHandler;
@@ -15,12 +14,18 @@ public class App {
 
   public static void main(String[] args) {
 
-    BoardList boardList1 = new BoardList();
-    BoardList boardList2 = new BoardList();
-    BoardList boardList3 = new BoardList();
-    BoardList boardList4 = new BoardList();
-    BoardList boardList5 = new BoardList();
-    BoardList boardList6 = new BoardList();
+    BoardHandler boardList1 = new BoardHandler();
+    BoardHandler boardList2 = new BoardHandler();
+    BoardHandler boardList3 = new BoardHandler();
+    BoardHandler boardList4 = new BoardHandler();
+    BoardHandler boardList5 = new BoardHandler();
+    BoardHandler boardList6 = new BoardHandler();
+
+    MemberHandler memberList = new MemberHandler();
+
+    ProjectHandler projectList = new ProjectHandler();
+
+    TaskHandler taskList = new TaskHandler();
 
     loop:
       while (true) {
@@ -28,58 +33,58 @@ public class App {
 
         switch (command) {
           case "/member/add":
-            MemberHandler.add();
+            memberList.add();
             break;
           case "/member/list":
-            MemberHandler.list();
+            memberList.list();
             break;
           case "/project/add":
-            ProjectHandler.add();
+            projectList.add(memberList);
             break;
           case "/project/list":
-            ProjectHandler.list();
+            projectList.list();
             break;
           case "/task/add":
-            TaskHandler.add();
+            taskList.add(memberList);
             break;
           case "/task/list":
-            TaskHandler.list();
+            taskList.list();
             break;
           case "/board/add":
-            BoardHandler.add(boardList1);
+            boardList1.add();
             break;
           case "/board/list":
-            BoardHandler.list(boardList1);
+            boardList1.list();
             break;
           case "/board2/add":
-            BoardHandler.add(boardList2);
+            boardList2.add();
             break;
           case "/board2/list":
-            BoardHandler.list(boardList2);
+            boardList2.list();
             break;
           case "/board3/add":
-            BoardHandler.add(boardList3);
+            boardList3.add();
             break;
           case "/board3/list":
-            BoardHandler.list(boardList3);
+            boardList3.list();
             break;
           case "/board4/add":
-            BoardHandler.add(boardList4);
+            boardList4.add();
             break;
           case "/board4/list":
-            BoardHandler.list(boardList4);
+            boardList4.list();
             break;
           case "/board5/add":
-            BoardHandler.add(boardList5);
+            boardList5.add();
             break;
           case "/board5/list":
-            BoardHandler.list(boardList5);
+            boardList5.list();
             break;
           case "/board6/add":
-            BoardHandler.add(boardList6);
+            boardList6.add();
             break;
           case "/board6/list":
-            BoardHandler.list(boardList6);
+            boardList6.list();
             break;
           case "quit":
           case "exit":
